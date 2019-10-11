@@ -1,0 +1,31 @@
+﻿<Window x:Class="ToDoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoApp"
+        mc:Ignorable="d"
+        Title="ToDoLists" Height="450" Width="800" VerticalAlignment="Bottom">
+    <Grid Margin="10">
+        <ListBox Name="lbTodoList" HorizontalContentAlignment="Stretch" Margin="0,0,0,35">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Open" Click="MenuItemOpen_Click"/>
+                    <MenuItem Header="Delete" Click="MenuItemDelete_Click"/>                    
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding name}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="listCreate" Content="Create a new list" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="752" Click="listCreate_Click"/>
+    </Grid>
+
+</Window>
